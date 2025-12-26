@@ -7,6 +7,7 @@ import TrustBadge from "@/components/TrustBadge";
 import ProductSection from "@/components/ProductSection";
 import CartSidebar from "@/components/CartSidebar";
 import Footer from "@/components/Footer";
+import { MobileNav } from "@/components/MobileNav";
 import { Tv, Bot, Monitor, Palette, Server } from "lucide-react";
 
 // Product Data
@@ -277,9 +278,11 @@ const Index = () => {
           <div className="flex-1 md:ml-20">
             <MainContent />
             <Footer />
+            <div className="h-16 md:hidden" /> {/* Mobile nav spacer */}
           </div>
         </div>
 
+        <MobileNav />
         <CartSidebar />
       </div>
     </CartProvider>
