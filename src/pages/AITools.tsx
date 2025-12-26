@@ -45,7 +45,7 @@ const aiProducts = [
     price: 1899,
     originalPrice: 3200,
     image:
-      "https://www.anthropic.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F9e5b206a31c5bc2f0a01baa7b8b9db4ed5cfdd48-2560x2560.png&w=640&q=75",
+      "https://upload.wikimedia.org/wikipedia/commons/0/0f/Claude-ai-icon.png?20250728093931"
     category: "AI Tools",
   },
   {
