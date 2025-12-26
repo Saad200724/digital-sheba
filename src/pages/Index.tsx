@@ -6,6 +6,7 @@ import HeroBanner from '@/components/HeroBanner';
 import TrustBadge from '@/components/TrustBadge';
 import ProductSection from '@/components/ProductSection';
 import CartSidebar from '@/components/CartSidebar';
+import Footer from '@/components/Footer';
 import { Tv, Bot, Monitor, Palette, Server } from 'lucide-react';
 
 // Product Data
@@ -248,8 +249,10 @@ const Index = () => {
   return (
     <CartProvider>
       <div className="min-h-screen bg-muted/30 flex flex-col">
-        {/* Header - Full width at top */}
-        <Header onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+        {/* Header - Full width at top, offset by sidebar */}
+        <div className="md:ml-20">
+          <Header onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+        </div>
 
         {/* Content area with sidebar */}
         <div className="flex flex-1">
@@ -268,6 +271,7 @@ const Index = () => {
           {/* Main Content Area - offset by sidebar width */}
           <div className="flex-1 md:ml-20">
             <MainContent />
+            <Footer />
           </div>
         </div>
 
