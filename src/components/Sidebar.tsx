@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Globe, 
   Server, 
@@ -29,23 +30,25 @@ interface CategoryItem {
   icon: LucideIcon;
   color: string;
   bgColor: string;
+  path: string;
 }
 
 const categories: CategoryItem[] = [
-  { id: 'all', label: 'All Products', icon: Home, color: 'text-purple-600', bgColor: 'bg-purple-100' },
-  { id: 'streaming', label: 'Streaming', icon: Tv, color: 'text-red-600', bgColor: 'bg-red-100' },
-  { id: 'ai', label: 'AI Tools', icon: Bot, color: 'text-green-600', bgColor: 'bg-green-100' },
-  { id: 'design', label: 'Design', icon: Palette, color: 'text-pink-600', bgColor: 'bg-pink-100' },
-  { id: 'professional', label: 'Professional', icon: Briefcase, color: 'text-blue-600', bgColor: 'bg-blue-100' },
-  { id: 'software', label: 'Software', icon: Monitor, color: 'text-orange-600', bgColor: 'bg-orange-100' },
-  { id: 'hosting', label: 'Hosting', icon: Server, color: 'text-cyan-600', bgColor: 'bg-cyan-100' },
-  { id: 'domains', label: 'Domains', icon: Globe, color: 'text-indigo-600', bgColor: 'bg-indigo-100' },
-  { id: 'music', label: 'Music', icon: Headphones, color: 'text-emerald-600', bgColor: 'bg-emerald-100' },
-  { id: 'documents', label: 'Documents', icon: FileText, color: 'text-amber-600', bgColor: 'bg-amber-100' },
+  { id: 'all', label: 'All Products', icon: Home, color: 'text-purple-600', bgColor: 'bg-purple-100', path: '/' },
+  { id: 'streaming', label: 'Streaming', icon: Tv, color: 'text-red-600', bgColor: 'bg-red-100', path: '/streaming' },
+  { id: 'ai', label: 'AI Tools', icon: Bot, color: 'text-green-600', bgColor: 'bg-green-100', path: '/ai-tools' },
+  { id: 'design', label: 'Design', icon: Palette, color: 'text-pink-600', bgColor: 'bg-pink-100', path: '/design' },
+  { id: 'professional', label: 'Professional', icon: Briefcase, color: 'text-blue-600', bgColor: 'bg-blue-100', path: '/professional' },
+  { id: 'software', label: 'Software', icon: Monitor, color: 'text-orange-600', bgColor: 'bg-orange-100', path: '/software' },
+  { id: 'hosting', label: 'Hosting', icon: Server, color: 'text-cyan-600', bgColor: 'bg-cyan-100', path: '/hosting' },
+  { id: 'domains', label: 'Domains', icon: Globe, color: 'text-indigo-600', bgColor: 'bg-indigo-100', path: '/domains' },
+  { id: 'music', label: 'Music', icon: Headphones, color: 'text-emerald-600', bgColor: 'bg-emerald-100', path: '/music' },
+  { id: 'documents', label: 'Documents', icon: FileText, color: 'text-amber-600', bgColor: 'bg-amber-100', path: '/documents' },
 ];
 
 const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const location = useLocation();
 
   return (
     <aside 
@@ -68,11 +71,12 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
       <div className="flex-1 px-2 space-y-1 overflow-y-auto">
         {categories.map((cat) => {
           const Icon = cat.icon;
-          const isActive = activeCategory === cat.id;
+          const isActive = location.pathname === cat.path;
           
           return (
-            <button
+            <Link
               key={cat.id}
+              to={cat.path}
               onClick={() => onCategoryChange(cat.id)}
               className={cn(
                 'w-full flex items-center gap-3 rounded-xl transition-all duration-200 group',
@@ -102,7 +106,7 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
               {isExpanded && isActive && (
                 <ChevronRight className="w-4 h-4 text-purple-600" />
               )}
-            </button>
+            </Link>
           );
         })}
       </div>
