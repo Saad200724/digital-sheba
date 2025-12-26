@@ -59,7 +59,7 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
       style={{ top: 0, height: '100vh' }}
     >
       {/* Header spacer - matches navbar height */}
-      <div className="h-[80px] flex-shrink-0 border-b border-border bg-white flex items-center justify-center">
+      <div className="h-[120px] flex-shrink-0 border-b border-border bg-white flex items-end pb-3 px-4">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105"

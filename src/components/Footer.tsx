@@ -61,9 +61,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
-                <img src="/apple-touch-icon.png" className="w-8 h-8 invert brightness-0" alt="DigitalSeba" />
-              </div>
+              <img src={logoImage} alt="DigitalSeba" className="h-10" />
             </Link>
             <p className="text-gray-600 text-sm mb-6 leading-relaxed">
               Our motive is to provide digital service or original license to the customer at a relatively low price.{' '}
