@@ -53,12 +53,13 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
   return (
     <aside 
       className={cn(
-        'bg-white border-r border-border h-[calc(100vh-120px)] py-4 hidden md:flex flex-col transition-all duration-300 ease-in-out fixed left-0 top-[120px] z-30 overflow-y-auto',
+        'bg-white border-r border-border hidden md:flex flex-col transition-all duration-300 ease-in-out fixed left-0 z-40 overflow-hidden',
         isExpanded ? 'w-56' : 'w-20'
       )}
+      style={{ top: 0, height: '100vh' }}
     >
-      {/* Toggle Button */}
-      <div className="px-4 mb-6">
+      {/* Header spacer - matches navbar height */}
+      <div className="h-[120px] flex-shrink-0 border-b border-border bg-white flex items-end pb-3 px-4">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105"
@@ -68,7 +69,7 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
       </div>
 
       {/* Categories */}
-      <div className="flex-1 px-2 space-y-1 overflow-y-auto">
+      <div className="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
         {categories.map((cat) => {
           const Icon = cat.icon;
           const isActive = location.pathname === cat.path;

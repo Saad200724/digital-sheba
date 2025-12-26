@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import Logo from './Logo';
+import { Link } from 'react-router-dom';
+import logoImage from '@/assets/logo.png';
 import { 
   Facebook, 
   Instagram, 
@@ -8,116 +9,113 @@ import {
   Mail, 
   Phone, 
   MapPin,
-  ArrowRight
+  CheckCircle,
+  Shield,
+  MessageCircle
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
-const footerLinks = {
-  products: [
-    { label: 'Domain Registration', href: '#domains' },
-    { label: 'Web Hosting', href: '#hosting' },
-    { label: 'Digital Subscriptions', href: '#subscriptions' },
-    { label: 'AI Tools', href: '#ai-hub' },
-    { label: 'Software Licenses', href: '#software' },
-  ],
-  company: [
-    { label: 'About Us', href: '#' },
-    { label: 'Contact', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'Press Kit', href: '#' },
-  ],
-  support: [
-    { label: 'Help Center', href: '#' },
-    { label: 'FAQs', href: '#' },
-    { label: 'Refund Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
-  ],
-};
+const categories = [
+  { label: 'Streaming', href: '/streaming', badge: 'Popular' },
+  { label: 'AI Tools', href: '/ai-tools', badge: 'Hot' },
+  { label: 'Design Tools', href: '/design' },
+  { label: 'Software', href: '/software' },
+  { label: 'Web Hosting', href: '/hosting' },
+];
+
+const usefulLinks = [
+  { label: 'About', href: '#' },
+  { label: 'Blog', href: '#' },
+  { label: 'Contact Us', href: '#' },
+  { label: 'Promotions', href: '#' },
+  { label: 'My Account', href: '#' },
+  { label: 'Orders', href: '#' },
+];
+
+const siteLinks = [
+  { label: 'FAQ', href: '#' },
+  { label: 'Return and Refund Policy', href: '#' },
+  { label: 'Terms and Conditions', href: '#' },
+  { label: 'Privacy Policy', href: '#' },
+  { label: 'Order Cancellation Policy', href: '#' },
+  { label: 'Order Tracking', href: '#' },
+];
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Youtube, href: '#', label: 'YouTube' },
-  { icon: Send, href: '#', label: 'Telegram' },
+  { icon: Facebook, href: '#', label: 'Facebook', color: 'hover:bg-blue-600' },
+  { icon: Youtube, href: '#', label: 'YouTube', color: 'hover:bg-red-600' },
+  { icon: MessageCircle, href: 'https://wa.me/8801746462630', label: 'WhatsApp', color: 'hover:bg-green-600' },
+  { icon: Send, href: 'https://t.me/digitalseba', label: 'Telegram', color: 'hover:bg-sky-500' },
+];
+
+const paymentMethods = [
+  'VISA', 'Mastercard', 'AMEX', 'bKash', 'Nagad', 'Rocket', 'DBBL', 'Upay', 'SureCash', 'Binance'
 ];
 
 const Footer = () => {
   return (
-    <footer className="relative pt-20 pb-8 px-4 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-card via-background to-background" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px]" />
-
-      <div className="relative max-w-7xl mx-auto">
-        {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-card p-8 md:p-12 rounded-3xl mb-16 text-center md:text-left"
-        >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                <span className="text-foreground">Stay Updated with </span>
-                <span className="gradient-text">Exclusive Deals</span>
-              </h3>
-              <p className="text-muted-foreground">
-                Get notified about new products, discounts, and digital trends.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 bg-muted/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              <Button className="btn-premium text-white px-6">
-                Subscribe
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+    <footer className="bg-white border-t border-gray-200">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+          
           {/* Brand Column */}
-          <div className="col-span-2 md:col-span-2">
-            <Logo className="mb-4" />
-            <p className="text-muted-foreground text-sm mb-6 max-w-xs">
-              Bangladesh's most trusted digital marketplace for domains, hosting, 
-              subscriptions, and software licenses.
+          <div className="lg:col-span-1">
+            <Link to="/" className="inline-block mb-4">
+              <img src={logoImage} alt="DigitalSeba" className="h-10" />
+            </Link>
+            <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+              Our motive is to provide digital service or original license to the customer at a relatively low price.{' '}
+              <a href="#" className="text-purple-600 hover:underline font-medium">Read More...</a>
             </p>
             
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <a href="mailto:support@digitalseba.com.bd" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <Mail className="w-4 h-4 text-primary" />
-                support@digitalseba.com.bd
-              </a>
-              <a href="tel:+8801234567890" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <Phone className="w-4 h-4 text-primary" />
-                +880 1234-567890
-              </a>
-              <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                Dhaka, Bangladesh
-              </div>
+            <h4 className="text-purple-600 font-semibold mb-3">Subscribe us</h4>
+            <div className="flex items-center gap-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className={`w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center transition-all ${social.color} hover:text-white`}
+                >
+                  <social.icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links Columns */}
+          {/* Categories */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Products</h4>
-            <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
+            <h4 className="text-purple-600 font-semibold mb-4">Categories</h4>
+            <ul className="space-y-2.5">
+              {categories.map((link) => (
+                <li key={link.label} className="flex items-center gap-2">
+                  <Link
+                    to={link.href}
+                    className="text-sm text-gray-600 hover:text-purple-600 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                  {link.badge && (
+                    <span className="text-[10px] bg-orange-500 text-white px-1.5 py-0.5 rounded font-medium">
+                      {link.badge}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Useful Links */}
+          <div>
+            <h4 className="text-purple-600 font-semibold mb-4">Useful Links</h4>
+            <ul className="space-y-2.5">
+              {usefulLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-gray-600 hover:text-purple-600 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -126,14 +124,15 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Site Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+            <h4 className="text-purple-600 font-semibold mb-4">Site Links</h4>
+            <ul className="space-y-2.5">
+              {siteLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-gray-600 hover:text-purple-600 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -142,49 +141,88 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Need Help + Verification */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Support</h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <h4 className="text-purple-600 font-semibold mb-4">Need Help?</h4>
+            <ul className="space-y-3 mb-6">
+              <li>
+                <a href="mailto:info@digitalseba.com.bd" className="flex items-start gap-2 text-sm text-gray-600 hover:text-purple-600 transition-colors">
+                  <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  info@digitalseba.com.bd
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/8801746462630" className="flex items-start gap-2 text-sm text-gray-600 hover:text-purple-600 transition-colors">
+                  <MessageCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  WhatsApp/Telegram: +8801746462630
+                </a>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-gray-600">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                Dhaka, Bangladesh
+              </li>
             </ul>
+
+            {/* Verification Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-4"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-800">We're Govt. Certified</p>
+                  <p className="text-xs text-purple-600 font-medium">Digital Business Provider</p>
+                </div>
+              </div>
+              <div className="mt-3 flex items-center gap-2">
+                <Shield className="w-4 h-4 text-green-600" />
+                <span className="text-xs text-gray-600">DBID Verified Seller</span>
+              </div>
+            </motion.div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground text-center md:text-left">
-            © {new Date().getFullYear()} DigitalSeba. All rights reserved.
-          </p>
-
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                aria-label={social.label}
-                className="p-2 rounded-full glass-card hover:bg-primary/10 transition-colors"
+      {/* Payment Methods Bar */}
+      <div className="border-t border-gray-200 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className="text-sm text-gray-500 font-medium mr-2">Pay with</span>
+            {paymentMethods.map((method) => (
+              <span 
+                key={method}
+                className="px-3 py-1.5 bg-white border border-gray-200 rounded-md text-xs font-medium text-gray-700 shadow-sm"
               >
-                <social.icon className="w-5 h-5 text-muted-foreground hover:text-foreground" />
-              </a>
+                {method}
+              </span>
             ))}
           </div>
+        </div>
+      </div>
 
-          {/* Payment Methods */}
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            <span>Payments:</span>
-            <span className="px-2 py-1 bg-muted/50 rounded">bKash</span>
-            <span className="px-2 py-1 bg-muted/50 rounded">Nagad</span>
-            <span className="px-2 py-1 bg-muted/50 rounded">Card</span>
+      {/* Copyright Bar */}
+      <div className="border-t border-gray-200 bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-gray-500 text-center md:text-left">
+              © {new Date().getFullYear()} digitalseba.com.bd All rights reserved
+            </p>
+            
+            {/* Floating Contact Button */}
+            <a 
+              href="https://wa.me/8801746462630"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg transition-all hover:scale-105"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span className="text-sm font-medium">Contact us</span>
+            </a>
           </div>
         </div>
       </div>
