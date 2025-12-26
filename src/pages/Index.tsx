@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { CartProvider } from '@/contexts/CartContext';
 import Sidebar from '@/components/Sidebar';
-import TopNav from '@/components/TopNav';
+import Header from '@/components/Header';
 import HeroBanner from '@/components/HeroBanner';
 import TrustBadge from '@/components/TrustBadge';
 import ProductSection from '@/components/ProductSection';
 import CartSidebar from '@/components/CartSidebar';
-import { Tv, Bot, Monitor, Palette, Server, type LucideIcon } from 'lucide-react';
+import { Tv, Bot, Monitor, Palette, Server } from 'lucide-react';
 
 // Product Data
 const streamingProducts = [
@@ -262,7 +262,7 @@ const Index = () => {
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col min-h-screen">
-          <TopNav onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} isMobileMenuOpen={isMobileMenuOpen} />
+          <Header onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
           <MainContent />
         </div>
 
