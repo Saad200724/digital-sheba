@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import ProductCard from '@/components/ProductCard';
 import CartSidebar from '@/components/CartSidebar';
+import Footer from '@/components/Footer';
 
 const documentProducts = [
   {
@@ -70,28 +71,33 @@ const Documents = () => {
 
   return (
     <div className="min-h-screen bg-muted/30 flex flex-col">
-      <Header onMenuToggle={() => {}} />
+      <div className="md:ml-20">
+        <Header onMenuToggle={() => {}} />
+      </div>
       <div className="flex flex-1">
         <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
-        <main className="flex-1 ml-0 md:ml-20 p-4 md:p-6">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
-                <FileText className="w-6 h-6 text-amber-600" />
-              </div>
-              <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">Documents & Productivity</h1>
-                <p className="text-muted-foreground">Essential tools for document management</p>
+        <div className="flex-1 md:ml-20 flex flex-col">
+          <main className="flex-1 p-4 md:p-6">
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-amber-600" />
+                </div>
+                <div>
+                  <h1 className="text-2xl md:text-3xl font-bold text-foreground">Documents & Productivity</h1>
+                  <p className="text-muted-foreground">Essential tools for document management</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {documentProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-          </div>
-        </main>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {documentProducts.map((product) => (
+                <ProductCard key={product.id} {...product} />
+              ))}
+            </div>
+          </main>
+          <Footer />
+        </div>
       </div>
       <CartSidebar />
     </div>
