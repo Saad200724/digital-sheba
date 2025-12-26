@@ -1,14 +1,17 @@
-import { Search, Globe, Sparkles, Check, X, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, Globe, Check, X, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const domainExtensions = ['.com', '.org', '.tech', '.cloud', '.dev', '.app', '.biz', '.io'];
 
 const HeroBanner = () => {
   const [domain, setDomain] = useState('');
   const [isChecking, setIsChecking] = useState(false);
   const [availability, setAvailability] = useState<'available' | 'taken' | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedExtension, setSelectedExtension] = useState('.com');
   const navigate = useNavigate();
 
   const slides = [
@@ -38,7 +41,7 @@ const HeroBanner = () => {
     setIsChecking(true);
     setAvailability(null);
     
-    const domainName = domain.includes('.') ? domain.toLowerCase().trim() : `${domain.toLowerCase().trim()}.com`;
+    const domainName = domain.includes('.') ? domain.toLowerCase().trim() : `${domain.toLowerCase().trim()}${selectedExtension}`;
     
     try {
       const response = await fetch(`https://rdap.org/domain/${domainName}`);
@@ -59,7 +62,7 @@ const HeroBanner = () => {
   };
 
   const handleClaimNow = () => {
-    const fullDomain = domain.includes('.') ? domain : `${domain}.com`;
+    const fullDomain = domain.includes('.') ? domain : `${domain}${selectedExtension}`;
     navigate(`/domain?name=${encodeURIComponent(fullDomain)}`);
   };
 
@@ -141,11 +144,8 @@ const HeroBanner = () => {
         <div className="flex flex-col gap-4">
           {/* Domain Search Card */}
           <div className="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-700 rounded-2xl p-5 text-white flex-1">
-            <div className="flex items-center gap-2 mb-3">
-              <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span className="text-xs font-medium text-purple-200">Premium Domains</span>
-            </div>
-            <h3 className="text-lg font-bold mb-2">Secure Your Perfect Domain Name</h3>
+            <span className="text-xs font-medium text-purple-200">Premium Domains</span>
+            <h3 className="text-lg font-bold mb-2 mt-1">Secure Your Perfect Domain Name</h3>
             
             <div className="flex gap-2 mb-3">
               <div className="relative flex-1">
@@ -158,7 +158,7 @@ const HeroBanner = () => {
                     setAvailability(null);
                   }}
                   onKeyPress={handleKeyPress}
-                  placeholder="yourdomain.com"
+                  placeholder="yourdomain"
                   className="w-full bg-white/10 backdrop-blur border border-white/20 rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder:text-purple-300 focus:outline-none focus:ring-2 focus:ring-white/30"
                 />
               </div>
@@ -172,6 +172,26 @@ const HeroBanner = () => {
               </Button>
             </div>
 
+            {/* Domain Extension Options */}
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {domainExtensions.map((ext) => (
+                <button
+                  key={ext}
+                  onClick={() => {
+                    setSelectedExtension(ext);
+                    setAvailability(null);
+                  }}
+                  className={`px-2 py-1 rounded text-xs font-medium transition-all ${
+                    selectedExtension === ext
+                      ? 'bg-white text-purple-700'
+                      : 'bg-white/10 text-white/80 hover:bg-white/20'
+                  }`}
+                >
+                  {ext}
+                </button>
+              ))}
+            </div>
+
             {availability && (
               <div className={`p-2 rounded-lg flex items-center gap-2 text-xs ${
                 availability === 'available' 
@@ -181,7 +201,7 @@ const HeroBanner = () => {
                 {availability === 'available' ? (
                   <>
                     <Check className="w-4 h-4 text-green-400" />
-                    <span>{domain.includes('.') ? domain : `${domain}.com`} is available!</span>
+                    <span>{domain.includes('.') ? domain : `${domain}${selectedExtension}`} is available!</span>
                     <Button onClick={handleClaimNow} size="sm" className="ml-auto bg-green-500 hover:bg-green-600 h-6 px-2 text-xs">
                       Claim
                     </Button>
@@ -189,7 +209,7 @@ const HeroBanner = () => {
                 ) : (
                   <>
                     <X className="w-4 h-4 text-red-400" />
-                    <span>{domain.includes('.') ? domain : `${domain}.com`} is taken</span>
+                    <span>{domain.includes('.') ? domain : `${domain}${selectedExtension}`} is taken</span>
                   </>
                 )}
               </div>

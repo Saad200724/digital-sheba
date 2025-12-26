@@ -254,6 +254,9 @@ const Index = () => {
           <Header onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
         </div>
 
+        {/* Spacer for fixed header */}
+        <div className="h-[120px] md:h-[110px]" />
+
         {/* Content area with sidebar */}
         <div className="flex flex-1">
           {/* Desktop Sidebar */}
