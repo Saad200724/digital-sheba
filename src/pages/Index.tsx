@@ -258,7 +258,7 @@ const Index = () => {
         </div>
 
         {/* Spacer for fixed header */}
-        <div className="h-[140px] md:h-[110px]" />
+        <div className="h-[120px] md:h-[110px]" />
 
         {/* Content area with sidebar */}
         <div className="flex flex-1">
