@@ -24,10 +24,10 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <CartProvider>
       <TooltipProvider>
-        <div className="flex flex-col min-h-screen pb-16 md:pb-0">
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
+        <BrowserRouter>
+          <div className="flex flex-col min-h-screen pb-16 md:pb-0">
+            <Toaster />
+            <Sonner />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/domain" element={<Domain />} />
@@ -42,9 +42,9 @@ const App = () => (
               <Route path="/documents" element={<Documents />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </BrowserRouter>
-          <MobileBottomNav />
-        </div>
+            <MobileBottomNav />
+          </div>
+        </BrowserRouter>
       </TooltipProvider>
     </CartProvider>
   </QueryClientProvider>
