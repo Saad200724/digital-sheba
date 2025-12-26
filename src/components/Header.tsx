@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Search, ShoppingCart, User, Menu, Heart, ChevronDown } from 'lucide-react';
+import { Search, ShoppingCart, User, Menu, Heart } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 import telegramIcon from '@/assets/telegram.png';
 import whatsappIcon from '@/assets/whatsapp.png';
+import logoImage from '@/assets/logo.png';
 
 interface HeaderProps {
   onMenuToggle: () => void;
@@ -27,15 +28,9 @@ const Header = ({ onMenuToggle }: HeaderProps) => {
       <div className="border-b border-border">
         <div className="flex items-center gap-4 px-4 py-3">
           {/* Logo */}
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">D</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="font-bold text-lg text-purple-700">DigitalSeba</h1>
-              <p className="text-[10px] text-muted-foreground -mt-1">Empowering Your Digital Journey</p>
-            </div>
-          </div>
+          <a href="/" className="flex-shrink-0">
+            <img src={logoImage} alt="DigitalSeba" className="h-10 md:h-12" />
+          </a>
 
           {/* Search Bar */}
           <div className="flex-1 max-w-2xl hidden md:flex">
