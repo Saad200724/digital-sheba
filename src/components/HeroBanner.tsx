@@ -233,7 +233,7 @@ const HeroBanner = () => {
                 </div>
                 <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
                   <img
-                    src="https://cdn.prod.website-files.com/6565e9e76af51dc1e42dd4b9/656cc71f8cd53b47cb1e56b1_perplexity_favicon.webp"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Perplexity_AI_Turquoise_on_White.png/960px-Perplexity_AI_Turquoise_on_White.png?20250123162739"
                     alt="Perplexity"
                     className="w-5 h-5"
                   />
