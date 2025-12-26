@@ -247,7 +247,7 @@ const Index = () => {
 
   return (
     <CartProvider>
-      <div className="min-h-screen bg-muted/30 flex">
+      <div className="min-h-screen bg-muted/30">
         {/* Desktop Sidebar */}
         <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
 
@@ -260,8 +260,8 @@ const Index = () => {
           </div>
         )}
 
-        {/* Main Content Area */}
-        <div className="flex-1 flex flex-col min-h-screen">
+        {/* Main Content Area - offset by sidebar width */}
+        <div className="md:ml-20 flex flex-col min-h-screen">
           <Header onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
           <MainContent />
         </div>

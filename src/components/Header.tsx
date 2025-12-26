@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, ShoppingCart, User, Menu, Heart } from 'lucide-react';
+import { Search, ShoppingCart, User, Heart, Phone, MessageCircle } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 import telegramIcon from '@/assets/telegram.png';
@@ -10,142 +10,139 @@ interface HeaderProps {
   onMenuToggle: () => void;
 }
 
-const navLinks = [
-  { label: 'Home', href: '#', active: true },
-  { label: 'Promotions', href: '#' },
-  { label: 'Shop', href: '#' },
-  { label: 'Blog', href: '#' },
-  { label: 'Our Contacts', href: '#' },
-];
-
 const Header = ({ onMenuToggle }: HeaderProps) => {
   const { toggleCart, totalItems, totalPrice } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <header className="sticky top-0 z-40 bg-white shadow-sm">
-      {/* Top Row - Logo, Search, Contact */}
-      <div className="border-b border-border">
-        <div className="flex items-center gap-4 px-4 py-3">
+    <header className="sticky top-0 z-40 bg-white">
+      {/* Main Header Row */}
+      <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 px-4 py-3">
+        <div className="flex items-center gap-4">
           {/* Logo */}
-          <a href="/" className="flex-shrink-0">
-            <img src={logoImage} alt="DigitalSeba" className="h-7 md:h-8" />
+          <a href="/" className="flex-shrink-0 bg-white rounded-lg px-2 py-1">
+            <img src={logoImage} alt="DigitalSeba" className="h-6 md:h-7" />
           </a>
 
-          {/* Search Bar */}
-          <div className="flex-1 max-w-2xl hidden md:flex">
-            <div className="flex w-full">
+          {/* Search Bar - Unique rounded style */}
+          <div className="flex-1 max-w-xl hidden md:block">
+            <div className="relative">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for products"
-                className="flex-1 bg-muted border border-border border-r-0 rounded-l-full pl-5 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                placeholder="What are you looking for today?"
+                className="w-full bg-white/95 rounded-lg pl-4 pr-12 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 shadow-lg"
               />
-              <select className="bg-muted border border-border border-l-0 border-r-0 px-3 text-sm text-muted-foreground focus:outline-none appearance-none cursor-pointer">
-                <option>SELECT CATEGORY</option>
-                <option>Streaming</option>
-                <option>AI Tools</option>
-                <option>Design</option>
-                <option>Software</option>
-              </select>
-              <Button className="rounded-l-none rounded-r-full bg-purple-600 hover:bg-purple-700 px-5">
-                <Search className="w-5 h-5" />
+              <Button 
+                size="sm" 
+                className="absolute right-1 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 rounded-md h-8 w-8 p-0"
+              >
+                <Search className="w-4 h-4" />
               </Button>
             </div>
           </div>
 
-          {/* Contact Section */}
-          <div className="flex items-center gap-3 ml-auto">
-            {/* Telegram */}
-            <a href="https://t.me/digitalseba" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform">
-              <img src={telegramIcon} alt="Telegram" className="w-10 h-10 rounded-xl" />
-            </a>
+          {/* Right Section - Contact & Actions */}
+          <div className="flex items-center gap-2 ml-auto">
+            {/* Support Contact */}
+            <div className="hidden lg:flex items-center gap-3 bg-white/10 backdrop-blur rounded-lg px-3 py-2">
+              <div className="flex items-center gap-2">
+                <a href="https://t.me/digitalseba" target="_blank" rel="noopener noreferrer">
+                  <img src={telegramIcon} alt="Telegram" className="w-8 h-8 rounded-lg hover:scale-110 transition-transform" />
+                </a>
+                <a href="https://wa.me/8801746462630" target="_blank" rel="noopener noreferrer">
+                  <img src={whatsappIcon} alt="WhatsApp" className="w-8 h-8 rounded-lg hover:scale-110 transition-transform" />
+                </a>
+              </div>
+              <div className="border-l border-white/20 pl-3">
+                <p className="text-xs text-white/80">24/7 Support</p>
+                <a href="tel:+8801746462630" className="text-sm font-semibold text-white hover:text-purple-200">
+                  +880 1746-462630
+                </a>
+              </div>
+            </div>
 
-            {/* WhatsApp */}
-            <a href="https://wa.me/8801746462630" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform">
-              <img src={whatsappIcon} alt="WhatsApp" className="w-10 h-10 rounded-xl" />
-            </a>
-
-            {/* Support Info */}
-            <div className="hidden lg:block">
-              <p className="text-sm font-semibold text-foreground">Tech - Chat Support</p>
-              <a href="tel:+8801746462630" className="text-sm text-purple-600 hover:underline">
-                +880 1746-462630
+            {/* Mobile Contact Icons */}
+            <div className="flex lg:hidden items-center gap-1">
+              <a href="https://t.me/digitalseba" target="_blank" rel="noopener noreferrer">
+                <img src={telegramIcon} alt="Telegram" className="w-9 h-9 rounded-lg" />
+              </a>
+              <a href="https://wa.me/8801746462630" target="_blank" rel="noopener noreferrer">
+                <img src={whatsappIcon} alt="WhatsApp" className="w-9 h-9 rounded-lg" />
               </a>
             </div>
+
+            {/* User Actions */}
+            <div className="flex items-center">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hidden sm:flex">
+                <User className="w-5 h-5" />
+              </Button>
+
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 relative hidden sm:flex">
+                <Heart className="w-5 h-5" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white rounded-full text-[10px] font-bold flex items-center justify-center">
+                  0
+                </span>
+              </Button>
+
+              {/* Cart */}
+              <Button
+                variant="ghost"
+                onClick={toggleCart}
+                className="text-white hover:bg-white/10 relative flex items-center gap-2"
+              >
+                <div className="relative">
+                  <ShoppingCart className="w-5 h-5" />
+                  {totalItems > 0 && (
+                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full text-[10px] font-bold flex items-center justify-center">
+                      {totalItems}
+                    </span>
+                  )}
+                </div>
+                <span className="hidden sm:inline text-sm font-medium">
+                  ৳{totalPrice > 0 ? totalPrice : '0'}
+                </span>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Search */}
+        <div className="mt-3 md:hidden">
+          <div className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search products..."
+              className="w-full bg-white/95 rounded-lg pl-4 pr-12 py-2.5 text-sm focus:outline-none shadow-lg"
+            />
+            <Button 
+              size="sm" 
+              className="absolute right-1 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 rounded-md h-8 w-8 p-0"
+            >
+              <Search className="w-4 h-4" />
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Bottom Row - Navigation */}
-      <div className="bg-white border-b border-border">
-        <div className="flex items-center gap-2 px-4 py-2">
-          {/* All Categories Button */}
-          <Button
-            onClick={onMenuToggle}
-            className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4 gap-2"
-          >
-            <Menu className="w-4 h-4" />
-            <span className="hidden sm:inline">All Categories</span>
-          </Button>
-
-          {/* Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 ml-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  link.active 
-                    ? 'bg-purple-100 text-purple-700' 
-                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Right Actions */}
-          <div className="flex items-center gap-2 ml-auto">
-            {/* Mobile Search */}
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Search className="w-5 h-5" />
-            </Button>
-
-            {/* User */}
-            <Button variant="ghost" size="icon" className="hidden sm:flex">
-              <User className="w-5 h-5 text-muted-foreground" />
-            </Button>
-
-            {/* Wishlist */}
-            <Button variant="ghost" size="icon" className="relative hidden sm:flex">
-              <Heart className="w-5 h-5 text-muted-foreground" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white rounded-full text-[10px] font-bold flex items-center justify-center">
-                0
-              </span>
-            </Button>
-
-            {/* Cart */}
-            <Button
-              variant="ghost"
-              onClick={toggleCart}
-              className="relative flex items-center gap-2 px-3"
-            >
-              <div className="relative">
-                <ShoppingCart className="w-5 h-5 text-purple-600" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full text-[10px] font-bold flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
-              </div>
-              <span className="hidden sm:inline text-sm font-medium text-foreground">
-                {totalPrice > 0 ? `৳${totalPrice}` : '৳0.00'}
-              </span>
-            </Button>
-          </div>
+      {/* Quick Info Bar */}
+      <div className="bg-gradient-to-r from-amber-400 to-orange-400 px-4 py-1.5">
+        <div className="flex items-center justify-center gap-6 text-sm font-medium text-amber-900 overflow-x-auto whitespace-nowrap">
+          <span className="flex items-center gap-1">
+            🔥 Hot Deals Available
+          </span>
+          <span className="hidden sm:flex items-center gap-1">
+            ⚡ Instant Delivery
+          </span>
+          <span className="hidden md:flex items-center gap-1">
+            ✅ 100% Genuine Products
+          </span>
+          <span className="hidden lg:flex items-center gap-1">
+            🛡️ DBID Verified Seller
+          </span>
         </div>
       </div>
     </header>
