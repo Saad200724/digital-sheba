@@ -29,7 +29,7 @@ const Header = ({ onMenuToggle }: HeaderProps) => {
         <div className="flex items-center gap-4 px-4 py-3">
           {/* Logo */}
           <a href="/" className="flex-shrink-0">
-            <img src={logoImage} alt="DigitalSeba" className="h-10 md:h-12" />
+            <img src={logoImage} alt="DigitalSeba" className="h-7 md:h-8" />
           </a>
 
           {/* Search Bar */}
@@ -63,15 +63,15 @@ const Header = ({ onMenuToggle }: HeaderProps) => {
             </a>
 
             {/* WhatsApp */}
-            <a href="https://wa.me/8801321363406" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform">
+            <a href="https://wa.me/8801746462630" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform">
               <img src={whatsappIcon} alt="WhatsApp" className="w-10 h-10 rounded-xl" />
             </a>
 
             {/* Support Info */}
             <div className="hidden lg:block">
               <p className="text-sm font-semibold text-foreground">Tech - Chat Support</p>
-              <a href="tel:+8801321363406" className="text-sm text-purple-600 hover:underline">
-                +8801321363406
+              <a href="tel:+8801746462630" className="text-sm text-purple-600 hover:underline">
+                +880 1746-462630
               </a>
             </div>
           </div>
