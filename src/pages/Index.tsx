@@ -247,23 +247,28 @@ const Index = () => {
 
   return (
     <CartProvider>
-      <div className="min-h-screen bg-muted/30">
-        {/* Desktop Sidebar */}
-        <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+      <div className="min-h-screen bg-muted/30 flex flex-col">
+        {/* Header - Full width at top */}
+        <Header onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
 
-        {/* Mobile Sidebar Overlay */}
-        {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMobileMenuOpen(false)}>
-            <div className="w-64 bg-background h-full" onClick={(e) => e.stopPropagation()}>
-              <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+        {/* Content area with sidebar */}
+        <div className="flex flex-1">
+          {/* Desktop Sidebar */}
+          <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+
+          {/* Mobile Sidebar Overlay */}
+          {isMobileMenuOpen && (
+            <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMobileMenuOpen(false)}>
+              <div className="w-64 bg-background h-full" onClick={(e) => e.stopPropagation()}>
+                <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Main Content Area - offset by sidebar width */}
-        <div className="md:ml-20 flex flex-col min-h-screen">
-          <Header onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
-          <MainContent />
+          {/* Main Content Area - offset by sidebar width */}
+          <div className="flex-1 md:ml-20">
+            <MainContent />
+          </div>
         </div>
 
         <CartSidebar />

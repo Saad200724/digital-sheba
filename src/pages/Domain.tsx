@@ -69,11 +69,11 @@ const Domain = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header onMenuToggle={() => {}} />
-      <div className="flex">
+      <div className="flex flex-1">
         <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
-        <main className="flex-1 ml-0 md:ml-64 pt-4 pb-12 px-4 md:px-8">
+        <main className="flex-1 ml-0 md:ml-20 pt-4 pb-12 px-4 md:px-8">
           {/* Back Button */}
           <Link to="/">
             <Button variant="ghost" className="mb-6 gap-2">
