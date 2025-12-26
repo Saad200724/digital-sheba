@@ -43,7 +43,7 @@ const designProducts = [
     description: 'Premium video editing features',
     price: 399,
     originalPrice: 799,
-    image: 'https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/websites/capcut_creative_suite/capcut_icon.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/CapCut_Logo.svg',
     category: 'Design',
   },
   {
@@ -61,7 +61,7 @@ const designProducts = [
     description: 'Prototyping & collaboration',
     price: 799,
     originalPrice: 1500,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/InVision_Icon.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/InVision_logo.svg',
     category: 'Design',
   },
 ];

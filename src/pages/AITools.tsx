@@ -62,8 +62,7 @@ const aiProducts = [
     description: "AI content writing assistant",
     price: 2499,
     originalPrice: 4500,
-    image:
-      "https://assets-global.website-files.com/60e5f2de011b86acebc30db7/6426a3d7a9c7413e15eb5668_Jasper-Favicon-32x32.png",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Jasper_AI_logo.png",
     category: "AI Tools",
   },
 ];

@@ -41,7 +41,7 @@ const musicProducts = [
     description: 'Lossless & Dolby Atmos audio',
     price: 299,
     originalPrice: 500,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Tidal_%28service%29_logo.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/TIDAL_2023_logo.svg',
     category: 'Music',
     badge: 'HiFi',
     badgeColor: 'bg-emerald-500',
@@ -52,7 +52,7 @@ const musicProducts = [
     description: 'Personalized music streaming',
     price: 149,
     originalPrice: 280,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Deezer_Logo.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Deezer_logo_2023.svg',
     category: 'Music',
   },
   {
