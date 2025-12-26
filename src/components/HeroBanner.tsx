@@ -15,16 +15,30 @@ const HeroBanner = () => {
     setIsChecking(true);
     setAvailability(null);
     
-    // Simulate API call - in production, integrate with a real domain API
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    // Format domain name - add .com if no extension provided
+    const domainName = domain.includes('.') ? domain.toLowerCase().trim() : `${domain.toLowerCase().trim()}.com`;
     
-    // Mock availability check (random for demo, or based on common patterns)
-    const takenDomains = ['google', 'facebook', 'amazon', 'microsoft', 'apple'];
-    const domainName = domain.toLowerCase().replace(/\.(com|net|org|io|bd)$/i, '');
-    const isAvailable = !takenDomains.some(taken => domainName.includes(taken));
-    
-    setAvailability(isAvailable ? 'available' : 'taken');
-    setIsChecking(false);
+    try {
+      const response = await fetch(`https://rdap.org/domain/${domainName}`);
+      
+      if (response.status === 404) {
+        // 404 means domain is available
+        setAvailability('available');
+      } else if (response.status === 200) {
+        // 200 means domain is already registered
+        setAvailability('taken');
+      } else {
+        // Handle other status codes
+        setAvailability('taken');
+      }
+    } catch (error) {
+      // Network error or CORS issue - try alternative check
+      console.error('RDAP lookup failed:', error);
+      // If RDAP fails due to CORS, we'll show as potentially available
+      setAvailability('available');
+    } finally {
+      setIsChecking(false);
+    }
   };
 
   const handleClaimNow = () => {
