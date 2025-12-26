@@ -44,8 +44,7 @@ const aiProducts = [
     description: "5x more usage with priority access",
     price: 1899,
     originalPrice: 3200,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/0/0f/Claude-ai-icon.png?20250728093931"
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Claude-ai-icon.png?20250728093931",
     category: "AI Tools",
   },
   {
