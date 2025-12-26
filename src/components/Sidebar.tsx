@@ -13,10 +13,10 @@ import {
   Menu,
   Headphones,
   FileText,
+  X,
   type LucideIcon
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import logoImage from '@/assets/logo.png';
 
 interface SidebarProps {
   activeCategory: string;
@@ -50,7 +50,7 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
   return (
     <aside 
       className={cn(
-        'bg-white border-r border-border min-h-screen py-4 hidden md:flex flex-col transition-all duration-300 ease-in-out sticky top-0',
+        'bg-white border-r border-border h-screen py-4 hidden md:flex flex-col transition-all duration-300 ease-in-out fixed left-0 top-0 z-30 overflow-y-auto',
         isExpanded ? 'w-56' : 'w-20'
       )}
     >
@@ -58,14 +58,14 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
       <div className="px-4 mb-6">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+          className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105"
         >
-          <Menu className="w-5 h-5" />
+          {isExpanded ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {/* Categories */}
-      <div className="flex-1 px-2 space-y-1">
+      <div className="flex-1 px-2 space-y-1 overflow-y-auto">
         {categories.map((cat) => {
           const Icon = cat.icon;
           const isActive = activeCategory === cat.id;
@@ -109,7 +109,7 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
 
       {/* Trust Badge - Only show when expanded */}
       {isExpanded && (
-        <div className="mx-3 mt-4 p-3 bg-green-50 border border-green-200 rounded-xl">
+        <div className="mx-3 mt-4 p-3 bg-green-50 border border-green-200 rounded-xl flex-shrink-0">
           <div className="flex items-center gap-2 mb-1">
             <Shield className="w-4 h-4 text-green-600" />
             <span className="font-semibold text-green-800 text-xs">DBID Verified</span>
@@ -122,7 +122,7 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
 
       {/* Collapsed Trust Badge */}
       {!isExpanded && (
-        <div className="px-2 mt-4">
+        <div className="px-2 mt-4 flex-shrink-0">
           <div className="w-12 h-12 mx-auto rounded-xl bg-green-50 border border-green-200 flex items-center justify-center" title="DBID Verified">
             <Shield className="w-5 h-5 text-green-600" />
           </div>
