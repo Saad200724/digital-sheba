@@ -14,7 +14,7 @@ const domainProducts = [
     description: 'Most popular domain extension',
     price: 999,
     originalPrice: 1499,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Domain_name_space.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Globe_icon_3D.svg',
     category: 'Domains',
     popular: true,
   },
@@ -24,7 +24,7 @@ const domainProducts = [
     description: 'Perfect for tech companies',
     price: 899,
     originalPrice: 1299,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Domain_name_space.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg',
     category: 'Domains',
   },
   {
@@ -33,7 +33,7 @@ const domainProducts = [
     description: 'Ideal for organizations',
     price: 899,
     originalPrice: 1299,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Domain_name_space.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Dot_org_logo.svg',
     category: 'Domains',
   },
   {
@@ -42,7 +42,7 @@ const domainProducts = [
     description: 'Popular for startups & tech',
     price: 2999,
     originalPrice: 4999,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Domain_name_space.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/IO_TLD_logo.svg',
     category: 'Domains',
     badge: 'Tech Choice',
     badgeColor: 'bg-indigo-500',
@@ -53,7 +53,7 @@ const domainProducts = [
     description: 'Bangladesh country domain',
     price: 1499,
     originalPrice: 2500,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Domain_name_space.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg',
     category: 'Domains',
   },
   {
@@ -62,7 +62,7 @@ const domainProducts = [
     description: 'Made for developers',
     price: 1299,
     originalPrice: 2200,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Domain_name_space.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Dev.to_favicon.svg',
     category: 'Domains',
   },
 ];

@@ -23,7 +23,7 @@ const documentProducts = [
     description: 'Gmail, Docs, Drive & more',
     price: 599,
     originalPrice: 1100,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_Workspace_icon.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Google_Workspace_product_icons.svg',
     category: 'Documents',
   },
   {
@@ -43,7 +43,7 @@ const documentProducts = [
     description: 'Advanced note-taking & organization',
     price: 499,
     originalPrice: 900,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Evernote_Icon.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Evernote_logo_2022.svg',
     category: 'Documents',
   },
   {
@@ -52,7 +52,7 @@ const documentProducts = [
     description: '2TB cloud storage',
     price: 699,
     originalPrice: 1200,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Dropbox_logo_2017.svg',
     category: 'Documents',
   },
   {

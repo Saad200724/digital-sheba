@@ -32,7 +32,7 @@ const softwareProducts = [
     description: 'Advanced writing suggestions',
     price: 899,
     originalPrice: 1799,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Grammarly_Logo.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Grammarly_logo.svg',
     category: 'Software',
   },
   {
@@ -41,7 +41,7 @@ const softwareProducts = [
     description: 'Secure & fast VPN service',
     price: 499,
     originalPrice: 999,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/NordVPN_logo.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/41/NordVPN_logo.svg',
     category: 'Software',
     badge: 'Best Seller',
     badgeColor: 'bg-orange-500',
@@ -52,7 +52,7 @@ const softwareProducts = [
     description: 'Advanced malware protection',
     price: 399,
     originalPrice: 799,
-    image: 'https://upload.wikimedia.org/wikipedia/en/6/6a/Malwarebytes_Logo_%282016%29.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/en/5/5c/Malwarebytes_Logo_%282014%29.png',
     category: 'Software',
   },
   {
@@ -61,7 +61,7 @@ const softwareProducts = [
     description: 'Secure password manager',
     price: 299,
     originalPrice: 599,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/LastPass_logo.svg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/LastPass_logo_2022.svg',
     category: 'Software',
   },
 ];
