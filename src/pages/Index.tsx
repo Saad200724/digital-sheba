@@ -6,7 +6,7 @@ import HeroBanner from '@/components/HeroBanner';
 import TrustBadge from '@/components/TrustBadge';
 import ProductSection from '@/components/ProductSection';
 import CartSidebar from '@/components/CartSidebar';
-import { Tv, Bot, Monitor, Palette, Server } from 'lucide-react';
+import { Tv, Bot, Monitor, Palette, Server, type LucideIcon } from 'lucide-react';
 
 // Product Data
 const streamingProducts = [
@@ -198,8 +198,6 @@ const hostingProducts = [
 ];
 
 const MainContent = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-
   return (
     <main className="flex-1 p-4 md:p-6 overflow-y-auto">
       <HeroBanner />
@@ -249,13 +247,13 @@ const Index = () => {
 
   return (
     <CartProvider>
-      <div className="min-h-screen bg-background flex">
+      <div className="min-h-screen bg-muted/30 flex">
         {/* Desktop Sidebar */}
         <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
 
         {/* Mobile Sidebar Overlay */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={() => setIsMobileMenuOpen(false)}>
+          <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMobileMenuOpen(false)}>
             <div className="w-64 bg-background h-full" onClick={(e) => e.stopPropagation()}>
               <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
             </div>
