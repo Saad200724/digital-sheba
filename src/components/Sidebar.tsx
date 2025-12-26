@@ -50,7 +50,7 @@ const Sidebar = ({ activeCategory, onCategoryChange }: SidebarProps) => {
   return (
     <aside 
       className={cn(
-        'bg-white border-r border-border h-screen py-4 hidden md:flex flex-col transition-all duration-300 ease-in-out fixed left-0 top-0 z-30 overflow-y-auto',
+        'bg-white border-r border-border h-[calc(100vh-120px)] py-4 hidden md:flex flex-col transition-all duration-300 ease-in-out fixed left-0 top-[120px] z-30 overflow-y-auto',
         isExpanded ? 'w-56' : 'w-20'
       )}
     >
